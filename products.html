@@ -88,15 +88,20 @@
                     មិនទាន់មានភេសជ្ជៈនៅក្នុងរទេះទេ។
                 </p>
                 <div id="cart-summary" class="mt-8 p-6 bg-white rounded-xl shadow-lg hidden">
-                    <div class="flex justify-between items-center mb-6">
+                    <div class="flex justify-between items-center mb-4">
                         <span class="text-2xl font-bold" data-i18n="cart.totalPrice">តម្លៃសរុប:</span>
                         <span id="cart-total" class="text-3xl font-extrabold text-theme-primary">0៛</span>
+                    </div>
+                     <div class="text-right mb-6">
+                        <button id="currency-toggle-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full transition-colors text-sm">
+                            <i class="fas fa-exchange-alt mr-2"></i> <span data-i18n="cart.switchToUSD">ប្តូរទៅជា USD</span>
+                        </button>
                     </div>
                     <div class="space-y-4 text-center">
                          <button id="payment-qr-btn" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full w-full sm:w-auto transition-transform hover:scale-105">
                             <i class="fas fa-qrcode mr-2"></i> <span data-i18n="cart.paymentQR">ទូទាត់តាម QR</span>
                         </button>
-                        <p class="text-sm text-gray-600 font-semibold" data-i18n="cart.contactOrder">ឬទំនាក់ទំនងสั่งទិញតាមរយៈ</p>
+                        <p class="text-sm text-gray-600 font-semibold" data-i18n="cart.contactOrder">ឬទំនាក់ទំនងទិញតាមរយៈ</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                             <a href="https://web.facebook.com/MakLingErCoffee" target="_blank" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-full shadow-md transition-transform hover:scale-105">
                                 <i class="fab fa-facebook-f mr-2"></i> Facebook
@@ -134,11 +139,15 @@
     </div>
     
     <!-- QR Payment Modal -->
-    <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-[1001]">
-        <div class="bg-white p-6 rounded-lg shadow-xl text-center relative max-w-sm w-full">
-            <button id="closeQrModal" class="absolute -top-3 -right-3 bg-red-500 text-white rounded-full h-8 w-8 flex items-center justify-center">&times;</button>
-            <h3 class="text-2xl font-bold mb-4" data-i18n="cart.scanQR">ស្កេនដើម្បីទូទាត់</h3>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=MakLingErCoffeePayment" alt="QR Code" class="mx-auto rounded-md border-4 border-gray-200">
+    <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-[1001] p-4">
+        <div class="bg-white p-6 rounded-xl shadow-xl text-center relative max-w-sm w-full">
+            <button id="closeQrModal" class="absolute -top-3 -right-3 bg-red-500 text-white rounded-full h-9 w-9 flex items-center justify-center text-xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold mb-2" data-i18n="cart.scanQR">ស្កេនដើម្បីទូទាត់</h3>
+            <p class="text-xl font-bold text-theme-primary mb-4" id="qr-total-amount"></p>
+            <div id="qr-code-container" class="relative w-full max-w-[250px] aspect-square mx-auto">
+                 <img id="qr-khr" src="\Photo\khmer or.jpg" alt="KHQR for KHR" class="mx-auto rounded-md border-4 border-gray-200 w-full h-full object-contain">
+                 <img id="qr-usd" src="\Photo\usd qr code.jpg" alt="KHQR for USD" class="mx-auto rounded-md border-4 border-gray-200 w-full h-full object-contain hidden">
+            </div>
              <p class="mt-4 text-gray-600" data-i18n="cart.scanNote">សូមស្កេន QR Code នេះដើម្បីធ្វើការទូទាត់។</p>
         </div>
     </div>
@@ -148,19 +157,19 @@
              km: {
                 nav: { home: 'ទំព័រដើម', products: 'ភេសជ្ជៈ', about: 'អំពីពួកយើង', contact: 'ទំនាក់ទំនង', cart: 'រទេះទំនិញ' },
                 products: { heading: 'មានភេសជ្ជៈដូចជា' },
-                cart: { heading: 'រទេះទំនិញរបស់អ្នក', emptyMessage: 'មិនទាន់មានភេសជ្ជៈនៅក្នុងរទេះទេ។', totalPrice: 'តម្លៃសរុប:', addedToCartMessage: 'បានបន្ថែមទៅរទេះ!', removeButton: 'លុប', normalSize: 'កែវធម្មតា', largeSize: 'កែវធំ', contactOrder: 'ឬទំនាក់ទំនងកម្មង់តាមរយៈ', paymentQR: 'ទូទាត់តាម QR', scanQR: 'ស្កេនដើម្បីទូទាត់', scanNote: 'សូមស្កេន QR Code នេះដើម្បីធ្វើការទូទាត់។' },
+                cart: { heading: 'រទេះទំនិញរបស់អ្នក', emptyMessage: 'មិនទាន់មានភេសជ្ជៈនៅក្នុងរទេះទេ។', totalPrice: 'តម្លៃសរុប:', addedToCartMessage: 'បានបន្ថែមទៅរទេះ!', removeButton: 'លុប', normalSize: 'កែវធម្មតា', largeSize: 'កែវធំ', contactOrder: 'ឬទំនាក់ទំនងកម្មង់តាមរយៈ', paymentQR: 'ទូទាត់តាម QR', scanQR: 'ស្កេនដើម្បីទូទាត់', scanNote: 'សូមស្កេន QR Code នេះដើម្បីធ្វើការទូទាត់។', switchToUSD: 'ប្តូរទៅជា USD', switchToKHR: 'ប្តូរទៅជា ៛' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee។ រក្សាសិទ្ធិគ្រប់យ៉ាង។', privacyPolicy: 'គោលការណ៍ឯកជនភាព', termsOfService: 'លក្ខខណ្ឌប្រើប្រាស់' }
             },
             en: {
                 nav: { home: 'Home', products: 'Drinks', about: 'About Us', contact: 'Contact', cart: 'Cart' },
                 products: { heading: 'Our Drinks Selection' },
-                cart: { heading: 'Your Shopping Cart', emptyMessage: 'No drinks in the cart yet.', totalPrice: 'Total Price:', addedToCartMessage: 'Added to cart!', removeButton: 'Remove', normalSize: 'Normal', largeSize: 'Large', contactOrder: 'Or contact to order via', paymentQR: 'Pay with QR', scanQR: 'Scan to Pay', scanNote: 'Please scan this QR code to make a payment.' },
+                cart: { heading: 'Your Shopping Cart', emptyMessage: 'No drinks in the cart yet.', totalPrice: 'Total Price:', addedToCartMessage: 'Added to cart!', removeButton: 'Remove', normalSize: 'Normal', largeSize: 'Large', contactOrder: 'Or contact to order via', paymentQR: 'Pay with QR', scanQR: 'Scan to Pay', scanNote: 'Please scan this QR code to make a payment.', switchToUSD: 'Switch to USD', switchToKHR: 'Switch to KHR' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee. All rights reserved.', privacyPolicy: 'Privacy Policy', termsOfService: 'Terms of Service' }
             },
             zh: {
                 nav: { home: '首页', products: '饮品', about: '关于我们', contact: '联系我们', cart: '购物车' },
                 products: { heading: '我们的饮品' },
-                cart: { heading: '您的购物车', emptyMessage: '购物车中还没有饮品。', totalPrice: '总价:', addedToCartMessage: '已添加到购物车！', removeButton: '删除', normalSize: '普通杯', largeSize: '大杯', contactOrder: '或通过以下方式联系订购', paymentQR: '扫码支付', scanQR: '扫描支付', scanNote: '请扫描此二维码进行付款。' },
+                cart: { heading: '您的购物车', emptyMessage: '购物车中还没有饮品。', totalPrice: '总价:', addedToCartMessage: '已添加到购物车！', removeButton: '删除', normalSize: '普通杯', largeSize: '大杯', contactOrder: '或通过以下方式联系订购', paymentQR: '扫码支付', scanQR: '扫描支付', scanNote: '请扫描此二维码进行付款。', switchToUSD: '切换到美元', switchToKHR: '切换到瑞尔' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee。保留所有权利。', privacyPolicy: '隐私政策', termsOfService: '服务条款' }
             }
         };
@@ -178,15 +187,20 @@
 
         let currentLang = localStorage.getItem('language') || 'km';
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let currentCurrency = 'khr'; // 'khr' or 'usd'
+        const KHR_TO_USD_RATE = 4100;
+
+        // --- TRANSLATION & UTILITIES ---
+         function getTranslation(key, lang = currentLang) {
+            return key.split('.').reduce((o, i) => o?.[i], translations[lang]) || key;
+        }
         
-        // --- LANGUAGE & TRANSLATION ---
         function setLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('language', lang);
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.dataset.i18n;
-                const text = key.split('.').reduce((o, i) => o?.[i], translations[lang]);
+                const text = getTranslation(el.dataset.i18n, lang);
                 if (text) el.innerHTML = text;
             });
             updateLanguageButtons();
@@ -210,13 +224,23 @@
             });
         }
         
+        function formatPrice(khrValue) {
+            if (currentCurrency === 'usd') {
+                const usdValue = (khrValue / KHR_TO_USD_RATE).toFixed(2);
+                return `$${usdValue}`;
+            } else { 
+                return `${Math.round(khrValue).toLocaleString('km-KH')}៛`;
+            }
+        }
+
         // --- PRODUCT RENDERING ---
         function renderProducts() {
             const productContainer = document.querySelector('#products .grid');
+            if (!productContainer) return;
             productContainer.innerHTML = '';
             productData.forEach(p => {
-                const normalPrice = p.price.normal.toLocaleString('km-KH');
-                const largePrice = p.price.large.toLocaleString('km-KH');
+                const normalPriceDisplay = formatPrice(p.price.normal);
+                const largePriceDisplay = formatPrice(p.price.large);
                 const card = document.createElement('div');
                 card.className = 'product-card bg-white p-5 rounded-xl shadow-lg border text-center';
                 card.dataset.productId = p.id;
@@ -224,8 +248,8 @@
                     <img src="${p.img}" alt="${p.name[currentLang]}" class="w-full h-48 object-cover rounded-lg mb-4">
                     <h3 class="text-xl font-bold mb-2">${p.name[currentLang]}</h3>
                     <div class="space-y-2 mt-4">
-                        <button onclick="addToCart(${p.id}, 'normal')" class="add-to-cart-btn bg-theme-primary hover:bg-theme-primary-dark text-white font-bold py-2.5 px-5 rounded-full w-full">${translations[currentLang].cart.normalSize} - ${normalPrice}៛</button>
-                        <button onclick="addToCart(${p.id}, 'large')" class="add-to-cart-btn bg-theme-primary hover:bg-theme-primary-dark text-white font-bold py-2.5 px-5 rounded-full w-full">${translations[currentLang].cart.largeSize} - ${largePrice}៛</button>
+                        <button onclick="addToCart(${p.id}, 'normal')" class="add-to-cart-btn bg-theme-primary hover:bg-theme-primary-dark text-white font-bold py-2.5 px-5 rounded-full w-full">${getTranslation('cart.normalSize')} - ${normalPriceDisplay}</button>
+                        <button onclick="addToCart(${p.id}, 'large')" class="add-to-cart-btn bg-theme-primary hover:bg-theme-primary-dark text-white font-bold py-2.5 px-5 rounded-full w-full">${getTranslation('cart.largeSize')} - ${largePriceDisplay}</button>
                     </div>
                 `;
                 productContainer.appendChild(card);
@@ -245,7 +269,7 @@
                     cartId: cartId,
                     id: productId,
                     name: product.name,
-                    price: product.price[size],
+                    price: product.price[size], // Price is always stored in KHR
                     size: size,
                     img: product.img,
                     quantity: 1
@@ -292,6 +316,7 @@
             const emptyMsg = document.getElementById('empty-cart-message');
             const totalEl = document.getElementById('cart-total');
             
+            if (!container || !summary || !emptyMsg || !totalEl) return;
             container.innerHTML = '';
 
             if (cart.length === 0) {
@@ -301,31 +326,38 @@
                 summary.classList.remove('hidden');
                 emptyMsg.classList.add('hidden');
                 
-                let total = 0;
+                let totalKhr = 0;
                 cart.forEach(item => {
-                    total += item.price * item.quantity;
+                    totalKhr += item.price * item.quantity;
+                    const itemPriceDisplay = formatPrice(item.price);
                     const itemEl = document.createElement('div');
-                    itemEl.className = 'flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm border';
+                    itemEl.className = 'flex items-center justify-between bg-gray-50 p-3 rounded-lg shadow-sm border gap-2';
                     itemEl.innerHTML = `
                         <div class="flex items-center gap-3 flex-grow">
-                            <img src="${item.img}" alt="${item.name[currentLang]}" class="w-16 h-16 object-cover rounded-md border">
-                            <div>
-                                <h4 class="font-semibold">${item.name[currentLang]} <span class="text-sm text-gray-500">(${translations[currentLang].cart[item.size+'Size']})</span></h4>
-                                <p class="text-gray-600">${item.price.toLocaleString('km-KH')}៛</p>
+                            <img src="${item.img}" alt="${item.name[currentLang]}" class="w-16 h-16 object-cover rounded-md border flex-shrink-0">
+                            <div class="min-w-0">
+                                <h4 class="font-semibold truncate">${item.name[currentLang]} <span class="text-sm text-gray-500">(${getTranslation('cart.'+item.size+'Size')})</span></h4>
+                                <p class="text-gray-600 font-bold">${itemPriceDisplay}</p>
                             </div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="updateCart('${item.cartId}', 'decrease')" class="bg-gray-200 hover:bg-gray-300 w-7 h-7 rounded-full font-bold">-</button>
-                            <span class="w-8 text-center font-medium">${item.quantity}</span>
-                            <button onclick="updateCart('${item.cartId}', 'increase')" class="bg-gray-200 hover:bg-gray-300 w-7 h-7 rounded-full font-bold">+</button>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <button onclick="updateCart('${item.cartId}', 'decrease')" class="bg-gray-200 hover:bg-gray-300 w-8 h-8 rounded-full font-bold text-lg flex items-center justify-center">-</button>
+                            <span class="w-8 text-center font-medium text-lg">${item.quantity}</span>
+                            <button onclick="updateCart('${item.cartId}', 'increase')" class="bg-gray-200 hover:bg-gray-300 w-8 h-8 rounded-full font-bold text-lg flex items-center justify-center">+</button>
                         </div>
-                        <button onclick="updateCart('${item.cartId}', 'remove')" class="ml-4 text-red-500 hover:text-red-700">
-                            <i class="fas fa-trash-alt text-lg"></i>
+                        <button onclick="updateCart('${item.cartId}', 'remove')" class="ml-2 text-red-500 hover:text-red-700 flex-shrink-0">
+                            <i class="fas fa-trash-alt text-xl"></i>
                         </button>
                     `;
                     container.appendChild(itemEl);
                 });
-                totalEl.textContent = `${total.toLocaleString('km-KH')}៛`;
+                totalEl.textContent = formatPrice(totalKhr);
+
+                // Update currency toggle button text
+                const currencyBtnText = document.querySelector('#currency-toggle-btn span');
+                if (currencyBtnText) {
+                    currencyBtnText.innerHTML = (currentCurrency === 'khr') ? getTranslation('cart.switchToUSD') : getTranslation('cart.switchToKHR');
+                }
             }
         }
 
@@ -353,16 +385,37 @@
             document.querySelectorAll('.lang-button').forEach(button => {
                 button.addEventListener('click', () => setLanguage(button.dataset.lang));
             });
+            
+            // Currency Toggle
+            document.getElementById('currency-toggle-btn').addEventListener('click', () => {
+                currentCurrency = (currentCurrency === 'khr') ? 'usd' : 'khr';
+                renderProducts();
+                updateCartDisplay();
+            });
 
             // QR Modal
             const qrModal = document.getElementById('qrModal');
-            document.getElementById('payment-qr-btn').addEventListener('click', () => qrModal.style.display = 'flex');
+            document.getElementById('payment-qr-btn').addEventListener('click', () => {
+                const totalKhr = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                document.getElementById('qr-total-amount').textContent = formatPrice(totalKhr);
+                
+                const qrKhrImg = document.getElementById('qr-khr');
+                const qrUsdImg = document.getElementById('qr-usd');
+
+                if (currentCurrency === 'khr') {
+                    qrKhrImg.classList.remove('hidden');
+                    qrUsdImg.classList.add('hidden');
+                } else {
+                    qrKhrImg.classList.add('hidden');
+                    qrUsdImg.classList.remove('hidden');
+                }
+                qrModal.style.display = 'flex';
+            });
             document.getElementById('closeQrModal').addEventListener('click', () => qrModal.style.display = 'none');
             qrModal.addEventListener('click', (e) => { if (e.target === qrModal) qrModal.style.display = 'none'; });
             
             // Initial Load
             setLanguage(currentLang);
-            updateCartCount();
         });
     </script>
 </body>
