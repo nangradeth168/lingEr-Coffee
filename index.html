@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mak LingEr-Coffee</title>
+    <title>Mak LingEr-Coffee - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -42,63 +42,24 @@
             100% { opacity: 1; transform: scale3d(1, 1, 1); }
         }
 
-        /* Scroll-triggered fade-in animation */
-        .fade-in-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in-on-scroll.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Apply animations */
         .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
         .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; animation-delay: 0.3s; }
         .animate-bounce-in { animation: bounceIn 1s ease-out forwards; animation-delay: 0.6s; }
-
-        /* Product card hover animation */
-        #products .bg-white {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        #products .bg-white:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* About us feature hover animation */
-        #about .grid > div {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        #about .grid > div:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Product button styling for consistent height */
-        #products .add-to-cart-btn {
-            height: 50px; /* Consistent height for all buttons */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
     </style>
 </head>
 <body>
     <nav class="bg-white shadow-lg p-4 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors">
+            <a href="index.html" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors">
                 Mak LingEr-Coffee
             </a>
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.home">ទំព័រដើម</a>
-                <a href="#products" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.products">ភេសជ្ជៈ</a>
-                <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.about">អំពីពួកយើង</a>
-                <a href="#contact" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.contact">ទំនាក់ទំនង</a>
-                <a href="#cart-section" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100 relative">
+                <a href="index.html" class="nav-link text-indigo-600 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 bg-gray-100" data-i18n="nav.home">ទំព័រដើម</a>
+                <a href="products.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.products">ភេសជ្ជៈ</a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.about">អំពីពួកយើង</a>
+                <a href="contact.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.contact">ទំនាក់ទំនង</a>
+                <a href="products.html#cart-section" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100 relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
                 </a>
@@ -122,10 +83,11 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
-        <a href="#home" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.home">ទំព័រដើម</a>
-        <a href="#products" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.products">ភេសជ្ជៈ</a>
-        <a href="#about" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.about">អំពីពួកយើង</a>
-        <a href="#cart-section" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors flex items-center gap-2" onclick="toggleMobileMenu()">
+        <a href="index.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.home">ទំព័រដើម</a>
+        <a href="products.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.products">ភេសជ្ជៈ</a>
+        <a href="about.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.about">អំពីពួកយើង</a>
+         <a href="contact.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors" onclick="toggleMobileMenu()" data-i18n="nav.contact">ទំនាក់ទំនង</a>
+        <a href="products.html#cart-section" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 transition-colors flex items-center gap-2" onclick="toggleMobileMenu()">
             <i class="fas fa-shopping-cart"></i> <span data-i18n="nav.cart">រទេះទំនិញ</span>
         </a>
         <div class="language-switcher flex space-x-4">
@@ -136,7 +98,7 @@
     </div>
 
     <main>
-        <section id="home" class="relative bg-gradient-to-br from-indigo-700 to-purple-800 text-white py-24 px-4 overflow-hidden min-h-[60vh] flex items-center justify-center">
+        <section id="home" class="relative bg-gradient-to-br from-indigo-700 to-purple-800 text-white py-24 px-4 overflow-hidden min-h-[calc(100vh-80px)] flex items-center justify-center">
             <div class="absolute inset-0 z-0 opacity-20">
                 <div class="absolute w-64 h-64 bg-white rounded-full -top-16 -left-16 blur-3xl"></div>
                 <div class="absolute w-80 h-80 bg-indigo-400 rounded-full bottom-0 -right-24 blur-3xl"></div>
@@ -148,363 +110,9 @@
                 <p class="text-xl md:text-2xl mb-10 max-w-3xl mx-auto animate-fade-in-up" data-i18n="hero.subtitle">
                     យើងខ្ញុំផ្តល់ជូននូវភេសជ្ជៈកាហ្វេ និងគ្រឿងក្រអូបដែលមានគុណភាពខ្ពស់ សម្រាប់ចាប់ផ្តើមថ្ងៃថ្មីរបស់អ្នក។
                 </p>
-                <!-- Updated button text via data-i18n -->
-                <a href="#products" class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105 duration-300 inline-block text-lg animate-bounce-in animate-pulse" data-i18n="hero.button">
+                <a href="products.html" class="bg-white text-indigo-700 hover:bg-indigo-100 font-bold py-4 px-10 rounded-full shadow-xl transition-transform transform hover:scale-105 duration-300 inline-block text-lg animate-bounce-in animate-pulse" data-i18n="hero.button">
                     កម្មង់ឥឡូវនេះ
                 </a>
-            </div>
-        </section>
-
-        <section id="products" class="py-16 px-4 bg-gray-50">
-            <div class="container mx-auto text-center">
-                <!-- Updated heading text via data-i18n -->
-                <h2 class="text-4xl font-bold mb-12 text-gray-900" data-i18n="products.heading">មានភេសជ្ជៈដូចជា</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Product 1: កាហ្វេទឹកកក (Iced Coffee) - Name/Desc unchanged -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="1" data-product-name="កាហ្វេទឹកកក">
-                        <img src="https://placehold.co/600x400/8B4513/FFFFFF?text=Iced+Coffee" alt="កាហ្វេទឹកកក" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8B4513/FFFFFF?text=Iced+Coffee+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product1.name">កាហ្វេទឹកកក</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product1.description">រសជាតិឈ្ងុយឆ្ងាញ់ បែបប្រពៃណីខ្មែរ ជាមួយទឹកដោះគោ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('1', 'normal')" data-price="3000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 3000៛
-                            </button>
-                            <button onclick="addToCart('1', 'large')" data-price="5000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 5000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 2: កាហ្វេទឹកដោះគោ (Coffee with Milk) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="2" data-product-name="កាហ្វេទឹកដោះគោ">
-                        <img src="https://placehold.co/600x400/C8A2C8/FFFFFF?text=Coffee+with+Milk" alt="កាហ្វេទឹកដោះគោ" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/C8A2C8/FFFFFF?text=Coffee+with+Milk+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product2.name">កាហ្វេទឹកដោះគោ</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product2.description">កាហ្វេឆ្ងាញ់លាយទឹកដោះគោផ្អែមឈ្ងុយ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('2', 'normal')" data-price="3500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 3500៛
-                            </button>
-                            <button onclick="addToCart('2', 'large')" data-price="6000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 6000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3: តែបៃតង ឡាតេ (Matcha Latte) - Name/Desc unchanged -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="3" data-product-name="តែបៃតង ឡាតេ">
-                        <img src="https://placehold.co/600x400/008000/FFFFFF?text=Matcha+Latte" alt="តែបៃតង ឡាតេ" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/008000/FFFFFF?text=Matcha+Latte+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product3.name">តែបៃតង ឡាតេ</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product3.description">រសជាតិស្រស់ស្រាយពីតែបៃតងពិតៗ ផ្សំជាមួយទឹកដោះគោ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('3', 'normal')" data-price="3000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 3000៛
-                            </button>
-                            <button onclick="addToCart('3', 'large')" data-price="5000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 5000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 4: តែមេអំបៅដោះគោ (Butterfly Pea Milk Tea) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="4" data-product-name="តែមេអំបៅដោះគោ">
-                        <img src="https://placehold.co/600x400/5D3FD3/FFFFFF?text=Butterfly+Pea+Tea" alt="តែមេអំបៅដោះគោ" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/5D3FD3/FFFFFF?text=Butterfly+Pea+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product4.name">តែមេអំបៅដោះគោ</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product4.description">ទឹកតែមេអំបៅពណ៌ស្វាយ ស្រស់ស្រាយជាមួយទឹកដោះគោ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i> (3.5)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('4', 'normal')" data-price="4000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 4000៛
-                            </button>
-                            <button onclick="addToCart('4', 'large')" data-price="6000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 6000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 5: តែក្រហមក្រូចឆ្មា (Red Tea with Lemon) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="5" data-product-name="តែក្រហមក្រូចឆ្មា">
-                        <img src="https://placehold.co/600x400/FF5733/FFFFFF?text=Lemon+Red+Tea" alt="តែក្រហមក្រូចឆ្មា" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FF5733/FFFFFF?text=Lemon+Red+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product5.name">តែក្រហមក្រូចឆ្មា</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product5.description">តែក្រហមផ្សំជាមួយក្រូចឆ្មា ជួយឲ្យស្រស់ស្រាយ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('5', 'normal')" data-price="2000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 2000៛
-                            </button>
-                            <button onclick="addToCart('5', 'large')" data-price="4000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 4000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 6: តែបៃតង ទឹកដោះគោ (Green Tea with Milk) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="6" data-product-name="តែបៃតង ទឹកដោះគោ">
-                        <img src="https://placehold.co/600x400/4CAF50/FFFFFF?text=Green+Milk+Tea" alt="តែបៃតង ទឹកដោះគោ" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/4CAF50/FFFFFF?text=Green+Milk+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product6.name">តែបៃតង ទឹកដោះគោ</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product6.description">រសជាតិតែបៃតងលាយទឹកដោះគោ ផ្អែមត្រជាក់។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('6', 'normal')" data-price="4500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 4500៛
-                            </button>
-                            <button onclick="addToCart('6', 'large')" data-price="7000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 7000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 7: ក្រូចច្របាច់ (Freshly Squeezed Orange) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="7" data-product-name="ក្រូចច្របាច់">
-                        <img src="https://placehold.co/600x400/FFA500/FFFFFF?text=Squeezed+Orange" alt="ក្រូចច្របាច់" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/FFA500/FFFFFF?text=Squeezed+Orange+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product7.name">ក្រូចច្របាច់</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product7.description">ក្រូចស្រស់ៗ ១០០% ច្របាច់ភ្លាមៗ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('7', 'normal')" data-price="2500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 2500៛
-                            </button>
-                            <button onclick="addToCart('7', 'large')" data-price="4000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 4000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 8: Brown Sugar (Brown Sugar Milk) - Name/Desc updated -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="8" data-product-name="Brown Sugar">
-                        <img src="https://placehold.co/600x400/654321/FFFFFF?text=Brown+Sugar+Milk" alt="Brown Sugar" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/654321/FFFFFF?text=Brown+Sugar+Milk+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product8.name">Brown Sugar</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product8.description">ទឹកដោះគោជាមួយស្ករត្នោត រសជាតិឈ្ងុយឆ្ងាញ់។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('8', 'normal')" data-price="4000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 4000៛
-                            </button>
-                            <button onclick="addToCart('8', 'large')" data-price="6000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 6000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 9: តែគុជរស់ជាតិ ត្រាវ (Taro Bubble Tea) - NEW -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="9" data-product-name="តែគុជរស់ជាតិ ត្រាវ">
-                        <img src="https://placehold.co/600x400/9966CC/FFFFFF?text=Taro+Bubble+Tea" alt="តែគុជរស់ជាតិ ត្រាវ" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/9966CC/FFFFFF?text=Taro+Bubble+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product9.name">តែគុជរស់ជាតិ ត្រាវ</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product9.description">តែគុជរសជាតិត្រាវផ្អែមឆ្ងាញ់ ជាមួយគុជទំពារ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i> (3.9)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('9', 'normal')" data-price="4000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 4000៛
-                            </button>
-                            <button onclick="addToCart('9', 'large')" data-price="6500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 6500៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 10: តែគុជរស់ជាតិ ស្ត្របឺរី (Strawberry Bubble Tea) - NEW -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="10" data-product-name="តែគុជរស់ជាតិ ស្ត្របឺរី">
-                        <img src="https://placehold.co/600x400/F472B6/FFFFFF?text=Strawberry+Bubble+Tea" alt="តែគុជរស់ជាតិ ស្ត្របឺរី" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/F472B6/FFFFFF?text=Strawberry+Bubble+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product10.name">តែគុជរស់ជាតិ ស្ត្របឺរី</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product10.description">តែគុជរសជាតិស្ត្របឺរី ស្រស់ស្រាយ។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.5)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('10', 'normal')" data-price="4500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 4500៛
-                            </button>
-                            <button onclick="addToCart('10', 'large')" data-price="7000" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 7000៛
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 11: តែគុជរស់ជាតិ សូកូឡា (Chocolate Bubble Tea) - NEW -->
-                    <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200 relative" data-product-id="11" data-product-name="តែគុជរស់ជាតិ សូកូឡា">
-                        <img src="https://placehold.co/600x400/8B4513/FFFFFF?text=Chocolate+Bubble+Tea" alt="តែគុជរស់ជាតិ សូកូឡា" class="w-full h-48 object-cover rounded-lg mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x400/8B4513/FFFFFF?text=Chocolate+Bubble+Tea+Error';">
-                        <h3 class="text-2xl font-bold mb-2 text-gray-900" data-i18n="product11.name">តែគុជរស់ជាតិ សូកូឡា</h3>
-                        <p class="text-gray-600 mb-4" data-i18n="product11.description">តែគុជរសជាតិសូកូឡា ផ្អែមល្មម។</p>
-                        <div class="flex flex-col items-center mb-4">
-                            <div class="text-yellow-500 mb-2">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.2)
-                            </div>
-                            <div class="flex items-center text-sm text-green-700 font-semibold">
-                                <i class="fas fa-motorcycle mr-2"></i> មានសេវាដឹកជញ្ជូន
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="addToCart('11', 'normal')" data-price="3500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធម្មតា - 3500៛
-                            </button>
-                            <button onclick="addToCart('11', 'large')" data-price="5500" class="add-to-cart-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full w-full transition-colors duration-300 shadow-md">
-                                កែវធំ - 5500៛
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="cart-section" class="py-16 px-4 bg-white">
-            <div class="container mx-auto max-w-4xl">
-                <h2 class="text-4xl font-bold mb-8 text-gray-900 text-center" data-i18n="cart.heading">រទេះទំនិញរបស់អ្នក</h2>
-                <div id="cart-items-container" class="space-y-6">
-                    <p id="empty-cart-message" class="text-center text-gray-600 text-lg" data-i18n="cart.emptyMessage">
-                        មិនទាន់មានភេសជ្ជៈនៅក្នុងរទេះទេ។
-                    </p>
-                </div>
-                <div id="cart-summary" class="mt-10 p-6 bg-gray-50 rounded-xl shadow-lg hidden">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-2xl font-bold text-gray-800" data-i18n="cart.totalPrice">តម្លៃសរុប:</span>
-                        <span id="cart-total" class="text-3xl font-extrabold text-indigo-700">0៛</span>
-                    </div>
-                    <button id="checkout-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full w-full transition-colors duration-300 shadow-md" data-i18n="cart.contactOrderButton">
-                        <i class="fas fa-comment-dots mr-2"></i> ទំនាក់ទំនងកម្មង់ឥឡូវនេះ
-                    </button>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-                        <a href="https://web.facebook.com/MakLingErCoffee" target="_blank" class="flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300">
-                            <i class="fab fa-facebook-f mr-2"></i> Facebook Page
-                        </a>
-                        <a href="https://t.me/MakLingErCoffee" target="_blank" class="flex items-center justify-center bg-blue-400 hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300">
-                            <i class="fab fa-telegram-plane mr-2"></i> @MakLingErCoffee
-                        </a>
-                        <a href="tel:0888467829" class="flex items-center justify-center bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300">
-                            <i class="fas fa-phone mr-2"></i> 0888 467 829
-                        </a>
-                        <a href="tel:081695138" class="flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-md transition-colors duration-300">
-                            <i class="fas fa-phone mr-2"></i> 081 695 138
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-16 px-4 bg-white fade-in-on-scroll">
-            <div class="container mx-auto text-center max-w-4xl">
-                <h2 class="text-4xl font-bold mb-8 text-gray-900" data-i18n="about.heading">អំពីពួកយើង</h2>
-                <p class="text-lg text-gray-700 leading-relaxed mb-8" data-i18n="about.description">
-                    Mak LingEr-Coffee ត្រូវបានបង្កើតឡើងក្នុងគោលបំណងផ្តល់ជូននូវភេសជ្ជៈដែលមានគុណភាពខ្ពស់ រសជាតិឆ្ងាញ់ និងបរិយាកាសកក់ក្តៅដល់អតិថិជនទាំងអស់។ យើងខ្ញុំប្តេជ្ញាប្រើប្រាស់គ្រាប់កាហ្វេល្អបំផុត និងគ្រឿងផ្សំធម្មជាតិ ដើម្បីធានានូវរសជាតិពិតប្រាកដនៃភេសជ្ជៈនីមួយៗ។ ភាពរីករាយរបស់អតិថិជនគឺជាអាទិភាពចម្បងរបស់យើង។
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-                    <div class="p-6 rounded-xl bg-gray-50 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <i class="fas fa-mug-hot text-5xl text-green-600 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="about.feature1Title">គុណភាពកាហ្វេ</h3>
-                        <p class="text-gray-600" data-i18n="about.feature1Description">ជ្រើសរើសគ្រាប់កាហ្វេល្អឯកពីតំបន់ល្បីៗ។</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-50 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <i class="fas fa-leaf text-5xl text-blue-600 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="about.feature2Title">គ្រឿងផ្សំធម្មជាតិ</h3>
-                        <p class="text-gray-600" data-i18n="about.feature2Description">ប្រើប្រាស់ទឹកដោះគោ និងគ្រឿងផ្សំស្រស់ៗប្រចាំថ្ងៃ។</p>
-                    </div>
-                    <div class="p-6 rounded-xl bg-gray-50 shadow-md transform hover:scale-105 transition-transform duration-300">
-                        <i class="fas fa-motorcycle text-5xl text-purple-600 mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2" data-i18n="about.feature3Title">ដឹកជញ្ជូនរហ័ស</h3>
-                        <p class="text-gray-600" data-i18n="about.feature3Description">សេវាកម្មដឹកជញ្ជូនលឿនទូទាំងទីក្រុង។</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="py-16 px-4 bg-gray-100 fade-in-on-scroll">
-            <div class="container mx-auto text-center max-w-2xl">
-                <h2 class="text-4xl font-bold mb-8 text-gray-900" data-i18n="contact.heading">ទំនាក់ទំនងមកពួកយើង</h2>
-                <p class="text-lg text-gray-700 mb-8" data-i18n="contact.description">
-                    ប្រសិនបើអ្នកមានសំណួរ មតិកែលម្អ ឬចង់សាកសួរព័ត៌មានបន្ថែម សូមកុំស្ទាក់ស្ទើរក្នុងការទាក់ទងមកយើងខ្ញុំ។
-                </p>
-                <form id="contact-form" class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                    <div class="mb-6 text-left">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.nameLabel">ឈ្មោះ:</label>
-                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="ឈ្មោះពេញរបស់អ្នក" data-i18n="contact.namePlaceholder" required>
-                    </div>
-                    <div class="mb-6 text-left">
-                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.emailLabel">អ៊ីមែល:</label>
-                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="អ៊ីមែលរបស់អ្នក" data-i18n="contact.emailPlaceholder" required>
-                    </div>
-                    <div class="mb-6 text-left">
-                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.messageLabel">សារ:</label>
-                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="សាររបស់អ្នក" data-i18n="contact.messagePlaceholder" required></textarea>
-                    </div>
-                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300 w-full sm:w-auto" data-i18n="contact.submitButton">
-                        បញ្ជូនសារ
-                    </button>
-                </form>
-                <p class="mt-8 text-gray-600">
-                    <span data-i18n="contact.phonePrefix">ឬទូរស័ព្ទមកយើងតាមរយៈ:</span> <span class="font-semibold text-indigo-600">081 695 138 / 068 237 990<br>
-                    <span data-i18n="contact.telegramPrefix">តេឡេក្រាម</span>: <a href="https://t.me/vongsreysamphors" target="_blank" class="text-indigo-600 hover:underline">@vongsreysamphors</a> <br>
-                    <span data-i18n="contact.emailPrefix">អ៊ីមែល:</span> <a href="mailto:vongsreysamphors@gmail.com" class="text-indigo-600 hover:underline">vongsreysamphors@gmail.com</a>
-                </p>
             </div>
         </section>
     </main>
@@ -522,392 +130,99 @@
         </div>
     </footer>
 
-    <div id="cartMessageBox" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-green-500 text-white p-4 rounded-lg shadow-xl hidden transition-all duration-300 ease-in-out transform scale-95 opacity-0 z-[1000]">
-        <i class="fas fa-check-circle mr-2"></i> <span data-i18n="cart.addedToCartMessage">ភេសជ្ជៈត្រូវបានបន្ថែមទៅរទេះហើយ!</span>
-    </div>
-
     <script>
-        // Translations object - UPDATED with new drink names and key phrases
+        // --- START OF SHARED SCRIPT ---
         const translations = {
             km: {
                 nav: { home: 'ទំព័រដើម', products: 'ភេសជ្ជៈ', about: 'អំពីពួកយើង', contact: 'ទំនាក់ទំនង', cart: 'រទេះទំនិញ' },
-                hero: { title: 'រសជាតិកាហ្វេពិតប្រាកដ', subtitle: 'យើងខ្ញុំផ្តល់ជូននូវភេសជ្ជៈកាហ្វេ និងគ្រឿងក្រអូបដែលមានគុណភាពខ្ពស់ សម្រាប់ចាប់ផ្តើមថ្ងៃថ្មីរបស់អ្នក។', button: 'កម្មង់ឥឡូវនេះ' }, // Updated
-                products: { heading: 'មានភេសជ្ជៈដូចជា', freeDelivery: 'មានសេវាដឹកជញ្ជូន' }, // Updated
-                product1: { name: 'កាហ្វេទឹកកក', description: 'រសជាតិឈ្ងុយឆ្ងាញ់ បែបប្រពៃណីខ្មែរ ជាមួយទឹកដោះគោ។' },
-                product2: { name: 'កាហ្វេទឹកដោះគោ', description: 'កាហ្វេឆ្ងាញ់លាយទឹកដោះគោផ្អែមឈ្ងុយ។' }, // Updated
-                product3: { name: 'តែបៃតង ឡាតេ', description: 'រសជាតិស្រស់ស្រាយពីតែបៃតងពិតៗ ផ្សំជាមួយទឹកដោះគោ។' },
-                product4: { name: 'តែមេអំបៅដោះគោ', description: 'ទឹកតែមេអំបៅពណ៌ស្វាយ ស្រស់ស្រាយជាមួយទឹកដោះគោ។' }, // Updated
-                product5: { name: 'តែក្រហមក្រូចឆ្មា', description: 'តែក្រហមផ្សំជាមួយក្រូចឆ្មា ជួយឲ្យស្រស់ស្រាយ។' }, // Updated
-                product6: { name: 'តែបៃតង ទឹកដោះគោ', description: 'រសជាតិតែបៃតងលាយទឹកដោះគោ ផ្អែមត្រជាក់។' }, // Updated
-                product7: { name: 'ក្រូចច្របាច់', description: 'ក្រូចស្រស់ៗ ១០០% ច្របាច់ភ្លាមៗ។' }, // Updated
-                product8: { name: 'Brown Sugar', description: 'ទឹកដោះគោជាមួយស្ករត្នោត រសជាតិឈ្ងុយឆ្ងាញ់។' }, // Updated
-                product9: { name: 'តែគុជរស់ជាតិ ត្រាវ', description: 'តែគុជរសជាតិត្រាវផ្អែមឆ្ងាញ់ ជាមួយគុជទំពារ។' }, // New
-                product10: { name: 'តែគុជរស់ជាតិ ស្ត្របឺរី', description: 'តែគុជរសជាតិស្ត្របឺរី ស្រស់ស្រាយ។' }, // New
-                product11: { name: 'តែគុជរស់ជាតិ សូកូឡា', description: 'តែគុជរសជាតិសូកូឡា ផ្អែមល្មម។' }, // New
-                cart: { heading: 'រទេះទំនិញរបស់អ្នក', emptyMessage: 'មិនទាន់មានភេសជ្ជៈនៅក្នុងរទេះទេ។', totalPrice: 'តម្លៃសរុប:', contactOrderButton: 'ទំនាក់ទំនងកម្មង់ឥឡូវនេះ', addedToCartMessage: 'ភេសជ្ជៈត្រូវបានបន្ថែមទៅរទេះហើយ!', removeButton: 'លុប', pricePrefix: 'តម្លៃ:', normalSize: 'កែវធម្មតា', largeSize: 'កែវធំ' },
-                about: { heading: 'អំពីពួកយើង', description: 'Mak LingEr-Coffee ត្រូវបានបង្កើតឡើងក្នុងគោលបំណងផ្តល់ជូននូវភេសជ្ជៈដែលមានគុណភាពខ្ពស់ រសជាតិឆ្ងាញ់ និងបរិយាកាសកក់ក្តៅដល់អតិថិជនទាំងអស់។ យើងខ្ញុំប្តេជ្ញាប្រើប្រាស់គ្រាប់កាហ្វេល្អបំផុត និងគ្រឿងផ្សំធម្មជាតិ ដើម្បីធានានូវរសជាតិពិតប្រាកដនៃភេសជ្ជៈនីមួយៗ។ ភាពរីករាយរបស់អតិថិជនគឺជាអាទិភាពចម្បងរបស់យើង។', feature1Title: 'គុណភាពកាហ្វេ', feature1Description: 'ជ្រើសរើសគ្រាប់កាហ្វេល្អឯកពីតំបន់ល្បីៗ។', feature2Title: 'គ្រឿងផ្សំធម្មជាតិ', feature2Description: 'ប្រើប្រាស់ទឹកដោះគោ និងគ្រឿងផ្សំស្រស់ៗប្រចាំថ្ងៃ។', feature3Title: 'ដឹកជញ្ជូនរហ័ស', feature3Description: 'សេវាកម្មដឹកជញ្ជូនលឿនទូទាំងទីក្រុង។' },
-                contact: { heading: 'ទំនាក់ទំនងមកពួកយើង', description: 'ប្រសិនបើអ្នកមានសំណួរ មតិកែលម្អ ឬចង់សាកសួរព័ត៌មានបន្ថែម សូមកុំស្ទាក់ស្ទើរក្នុងការទាក់ទងមកយើងខ្ញុំ។', nameLabel: 'ឈ្មោះ:', namePlaceholder: 'ឈ្មោះពេញរបស់អ្នក', emailLabel: 'អ៊ីមែល:', emailPlaceholder: 'អ៊ីមែលរបស់អ្នក', messageLabel: 'សារ:', messagePlaceholder: 'សាររបស់អ្នក', submitButton: 'បញ្ជូនសារ', phonePrefix: 'លេខទូរស័ព្ទ:', telegramPrefix: 'តេឡេក្រាម', emailPrefix: 'អ៊ីមែល:' },
+                hero: { title: 'រសជាតិកាហ្វេពិតប្រាកដ', subtitle: 'យើងខ្ញុំផ្តល់ជូននូវភេសជ្ជៈកាហ្វេ និងគ្រឿងក្រអូបដែលមានគុណភាពខ្ពស់ សម្រាប់ចាប់ផ្តើមថ្ងៃថ្មីរបស់អ្នក។', button: 'កម្មង់ឥឡូវនេះ' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee។ រក្សាសិទ្ធិគ្រប់យ៉ាង។', privacyPolicy: 'គោលការណ៍ឯកជនភាព', termsOfService: 'លក្ខខណ្ឌប្រើប្រាស់', faq: 'សំណួរញឹកញាប់' }
             },
             en: {
                 nav: { home: 'Home', products: 'Drinks', about: 'About Us', contact: 'Contact', cart: 'Cart' },
-                hero: { title: 'Authentic Coffee Taste', subtitle: 'We offer high-quality coffee and fragrant beverages to kickstart your new day.', button: 'Order Now' }, // Updated
-                products: { heading: 'Drinks Available', freeDelivery: 'Delivery service available' }, // Updated
-                product1: { name: 'Iced Coffee', description: 'Delicious, traditional Khmer style with milk.' },
-                product2: { name: 'Coffee with Milk', description: 'Delicious coffee mixed with sweet milk.' }, // Updated
-                product3: { name: 'Matcha Latte', description: 'Refreshing taste of real green tea mixed with milk.' },
-                product4: { name: 'Butterfly Pea Milk Tea', description: 'Refreshing purple butterfly pea tea with milk.' }, // Updated
-                product5: { name: 'Red Tea with Lemon', description: 'Red tea mixed with lemon for refreshment.' }, // Updated
-                product6: { name: 'Green Tea with Milk', description: 'Sweet and cool green tea mixed with milk.' }, // Updated
-                product7: { name: 'Freshly Squeezed Orange', description: '100% fresh oranges, squeezed immediately.' }, // Updated
-                product8: { name: 'Brown Sugar Milk', description: 'Milk with rich, delicious brown sugar.' }, // Updated
-                product9: { name: 'Taro Bubble Tea', description: 'Deliciously sweet taro bubble tea with chewy pearls.' }, // New
-                product10: { name: 'Strawberry Bubble Tea', description: 'Refreshing strawberry flavored bubble tea.' }, // New
-                product11: { name: 'Chocolate Bubble Tea', description: 'Moderately sweet chocolate flavored bubble tea.' }, // New
-                cart: { heading: 'Your Shopping Cart', emptyMessage: 'No drinks in the cart yet.', totalPrice: 'Total Price:', contactOrderButton: 'Contact to Order Now', addedToCartMessage: 'Drink added to cart!', removeButton: 'Remove', pricePrefix: 'Price:', normalSize: 'Normal Size', largeSize: 'Large Size' },
-                about: { heading: 'About Us', description: 'Mak LingEr-Coffee was established to offer high-quality, delicious beverages and a cozy atmosphere to all customers. We are committed to using the best coffee beans and fresh, natural ingredients to ensure the authentic taste of every drink. Customer satisfaction is our top priority.', feature1Title: 'Coffee Quality', feature1Description: 'Select premium coffee beans from renowned regions.', feature2Title: 'Natural Ingredients', feature2Description: 'Use fresh milk and ingredients daily.', feature3Title: 'Fast Delivery', feature3Description: 'Fast delivery service city-wide.' },
-                contact: { heading: 'Contact Us', description: 'If you have any questions, feedback, or would like more information, please do not hesitate to contact us.', nameLabel: 'Name:', namePlaceholder: 'Your full name', emailLabel: 'Email:', emailPlaceholder: 'Your email', messageLabel: 'Message:', messagePlaceholder: 'Your message', submitButton: 'Send Message', phonePrefix: 'Phone number:', telegramPrefix: 'Telegram', emailPrefix: 'Email:' },
+                hero: { title: 'Authentic Coffee Taste', subtitle: 'We offer high-quality coffee and fragrant beverages to kickstart your new day.', button: 'Order Now' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee. All rights reserved.', privacyPolicy: 'Privacy Policy', termsOfService: 'Terms of Service', faq: 'FAQ' }
             },
             zh: {
                 nav: { home: '首页', products: '饮品', about: '关于我们', contact: '联系我们', cart: '购物车' },
-                hero: { title: '真正的咖啡风味', subtitle: '我们提供高品质的咖啡和香浓饮品，开启您的美好一天。', button: '立即订购' }, // Updated
-                products: { heading: '饮品列表', freeDelivery: '提供送货服务' }, // Updated
-                product1: { name: '冰咖啡', description: '美味、传统的柬埔寨风味，加牛奶。' },
-                product2: { name: '牛奶咖啡', description: '香甜的牛奶混合美味咖啡。' }, // Updated
-                product3: { name: '抹茶拿铁', description: '清新纯正的绿茶味，混合牛奶。' },
-                product4: { name: '蝶豆花奶茶', description: '清新的紫色蝶豆花茶配牛奶。' }, // Updated
-                product5: { name: '红茶柠檬', description: '红茶和柠檬混合，令人精神焕发。' }, // Updated
-                product6: { name: '牛奶绿茶', description: '甜美清凉的绿茶配牛奶。' }, // Updated
-                product7: { name: '鲜榨橙汁', description: '100%新鲜橙子，即时榨汁。' }, // Updated
-                product8: { name: '黑糖奶茶', description: '牛奶配浓郁美味的黑糖。' }, // Updated
-                product9: { name: '芋头珍珠奶茶', description: '甜美可口的芋头珍珠奶茶，配耐嚼珍珠。' }, // New
-                product10: { name: '草莓珍珠奶茶', description: '清爽的草莓味珍珠奶茶。' }, // New
-                product11: { name: '巧克力珍珠奶茶', description: '甜度适中的巧克力味珍珠奶茶。' }, // New
-                cart: { heading: '您的购物车', emptyMessage: '购物车中还没有饮品。', totalPrice: '总价:', contactOrderButton: '联系立即订购', addedToCartMessage: '饮品已添加到购物车！', removeButton: '删除', pricePrefix: '价格:', normalSize: '普通杯', largeSize: '大杯' },
-                about: { heading: '关于我们', description: 'Mak LingEr-Coffee 旨在为所有顾客提供高品质、美味的饮品和温馨的氛围。我们致力于使用最好的咖啡豆和新鲜天然的原料，以确保每种饮品的纯正风味。顾客满意是我们的首要任务。', feature1Title: '咖啡品质', feature1Description: '精选来自知名产地的优质咖啡豆。', feature2Title: '天然原料', feature2Description: '每天使用新鲜的牛奶和食材。', feature3Title: '快速送货', feature3Description: '全城范围内的快速送货服务。' },
-                contact: { heading: '联系我们', description: '如果您有任何问题、反馈或想了解更多信息，请随时与我们联系。', nameLabel: '姓名:', namePlaceholder: '您的全名', emailLabel: '电子邮件:', emailPlaceholder: '您的电子邮件', messageLabel: '消息:', messagePlaceholder: '您的消息', submitButton: '发送消息', phonePrefix: '电话号码:', telegramPrefix: '飞机', emailPrefix: '电子邮件:' },
+                hero: { title: '真正的咖啡风味', subtitle: '我们提供高品质的咖啡和香浓饮品，开启您的美好一天。', button: '立即订购' },
                 footer: { copyright: '&copy; 2025 Mak LingEr-Coffee。保留所有权利。', privacyPolicy: '隐私政策', termsOfService: '服务条款', faq: '常见问题' }
             }
         };
 
-        let currentLang = 'km'; // Default language
+        let currentLang = localStorage.getItem('language') || 'km';
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-        // Function to set language and update content
         function setLanguage(lang) {
             currentLang = lang;
+            localStorage.setItem('language', lang);
             document.documentElement.lang = lang;
 
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.dataset.i18n;
                 const text = getTranslation(key);
                 if (text) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         element.placeholder = text;
                     } else {
-                        // Use textContent for non-HTML elements to prevent XSS issues, but use innerHTML for footer text with &copy;
                         if (element.dataset.i18n.includes('footer')) {
-                             element.innerHTML = text;
+                           element.innerHTML = text;
                         } else {
-                            element.textContent = text;
+                           element.textContent = text;
                         }
                     }
                 }
             });
-
-            // Update product card content separately to handle mixed content (icon + text)
-            document.querySelectorAll('#products .bg-white').forEach(productCard => {
-                const productId = productCard.dataset.productId;
-                const productNameKey = `product${productId}.name`;
-                const productDescriptionKey = `product${productId}.description`;
-
-                const productNameElement = productCard.querySelector('h3');
-                const productDescriptionElement = productCard.querySelector('p:not(.add-to-cart-btn p)');
-                const freeDeliveryElement = productCard.querySelector('.text-green-700');
-
-                if (productNameElement) {
-                    productNameElement.textContent = getTranslation(productNameKey) || productNameElement.textContent;
-                }
-                if (productDescriptionElement) {
-                    productDescriptionElement.textContent = getTranslation(productDescriptionKey) || productDescriptionElement.textContent;
-                }
-                   if (freeDeliveryElement) {
-                    // Re-add the icon since innerHTML would overwrite it.
-                    freeDeliveryElement.innerHTML = `<i class="fas fa-motorcycle mr-2"></i> ${getTranslation('products.freeDelivery')}`;
-                }
-                productCard.dataset.productName = getTranslation(productNameKey);
-
-                // Update Button Texts
-                const buttons = productCard.querySelectorAll('.add-to-cart-btn');
-                buttons.forEach(button => {
-                    const size = button.getAttribute('onclick').match(/'(normal|large)'/)[1];
-                    const price = button.dataset.price;
-                    const sizeText = getTranslation(`cart.${size}Size`);
-                    
-                    // The button text format is "Size - Price៛"
-                    button.textContent = `${sizeText} - ${parseFloat(price).toLocaleString('km-KH')}៛`;
-                });
-            });
-            updateCartDisplay();
+             updateLanguageButtons();
         }
 
         function getTranslation(key) {
             const keys = key.split('.');
             let result = translations[currentLang];
-            for (let i = 0; i < keys.length; i++) {
-                if (result && result[keys[i]]) {
-                    result = result[keys[i]];
-                } else {
-                    return null;
-                }
+            for (const k of keys) {
+                result = result?.[k];
             }
             return result;
         }
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const cartCountElement = document.getElementById('cart-count');
-        const cartMessageBox = document.getElementById('cartMessageBox');
-        const cartItemsContainer = document.getElementById('cart-items-container');
-        const emptyCartMessage = document.getElementById('empty-cart-message');
-        const cartSummary = document.getElementById('cart-summary');
-        const cartTotalElement = document.getElementById('cart-total');
-        const langButtons = document.querySelectorAll('.lang-button');
-        const contactForm = document.getElementById('contact-form');
-
-        const RielRate = 4100; // Using this only for currency formatting consistency, not actual conversion logic.
-
-        let cart = [];
+        
+        function updateLanguageButtons() {
+            document.querySelectorAll('.lang-button').forEach(btn => {
+                if (btn.dataset.lang === currentLang) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
+                    btn.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
+                    btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
+                }
+            });
+        }
 
         function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
             mobileMenu.classList.toggle('hidden');
             document.body.classList.toggle('overflow-hidden');
         }
 
-        mobileMenuButton.addEventListener('click', toggleMobileMenu);
-        closeMobileMenuButton.addEventListener('click', toggleMobileMenu);
-
-        // Update the cart display
-        function updateCartDisplay() {
-            // Calculate total in Riel (assuming all prices in HTML data-price are Riel)
-            const cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-            cartCountElement.textContent = cart.reduce((total, item) => total + item.quantity, 0);
-            cartItemsContainer.innerHTML = '';
-
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                cartSummary.classList.add('hidden');
-            } else {
-                emptyCartMessage.style.display = 'none';
-                cartSummary.classList.remove('hidden');
-
-                cart.forEach(item => {
-                    const cartItemDiv = document.createElement('div');
-                    cartItemDiv.classList.add('flex', 'items-center', 'justify-between', 'bg-gray-50', 'p-4', 'rounded-lg', 'shadow-sm', 'border', 'border-gray-200');
-                    
-                    cartItemDiv.innerHTML = `
-                        <div class="flex items-center gap-4 flex-grow">
-                            <img src="${item.imageSrc}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md border">
-                            <div class="flex-grow">
-                                <h4 class="text-xl font-semibold text-gray-800">${item.name} <span class="text-sm font-normal text-gray-500">(${getTranslation(`cart.${item.size}Size`)})</span></h4>
-                                <p class="text-gray-600">${getTranslation('cart.pricePrefix')} ${item.price.toLocaleString('km-KH')}៛</p>
-                                <div class="flex items-center gap-2 mt-1">
-                                    <button data-product-id="${item.id}" data-product-size="${item.size}" class="decrease-quantity-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-full text-sm font-bold transition-colors">-</button>
-                                    <span class="text-lg font-medium">${item.quantity}</span>
-                                    <button data-product-id="${item.id}" data-product-size="${item.size}" class="increase-quantity-btn bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1 rounded-full text-sm font-bold transition-colors">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button data-product-id="${item.id}" data-product-size="${item.size}" class="remove-from-cart-btn bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-3 rounded-lg text-sm transition-colors flex items-center gap-1">
-                            <i class="fas fa-trash"></i> <span>${getTranslation('cart.removeButton')}</span>
-                        </button>
-                    `;
-                    cartItemsContainer.appendChild(cartItemDiv);
-                });
-                cartTotalElement.textContent = `${cartTotal.toLocaleString('km-KH')}៛`;
-            }
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cart-count');
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalQuantity;
         }
 
-        // Add to Cart functionality
-        window.addToCart = (productId, size) => {
-            const productCard = document.querySelector(`[data-product-id="${productId}"]`);
-            
-            // Construct the product name key using the current language to ensure accuracy
-            const productNameKey = `product${productId}.name`;
-            const productName = getTranslation(productNameKey) || productCard.dataset.productName;
-            
-            // Find the correct button to get the price
-            const productButton = productCard.querySelector(`button[data-price][onclick*="'${size}'"]`);
-            if (!productButton) {
-                console.error(`Price button for product ${productId} size ${size} not found.`);
-                return;
-            }
-            
-            const productPrice = parseFloat(productButton.dataset.price);
-            const productImageSrc = productCard.querySelector('img').src;
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+            document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
 
-            const existingItemIndex = cart.findIndex(item => item.id === productId && item.size === size);
-
-            if (existingItemIndex > -1) {
-                cart[existingItemIndex].quantity++;
-            } else {
-                cart.push({
-                    id: productId,
-                    name: productName,
-                    price: productPrice,
-                    size: size,
-                    imageSrc: productImageSrc,
-                    quantity: 1
-                });
-            }
-            updateCartDisplay();
-            
-            cartMessageBox.classList.remove('hidden', 'opacity-0', 'scale-95');
-            cartMessageBox.classList.add('opacity-100', 'scale-100');
-            cartMessageBox.querySelector('span').textContent = getTranslation('cart.addedToCartMessage');
-            
-            setTimeout(() => {
-                cartMessageBox.classList.remove('opacity-100', 'scale-100');
-                cartMessageBox.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => cartMessageBox.classList.add('hidden'), 300);
-            }, 3000);
-        };
-
-        // Event delegation for cart item actions
-        cartItemsContainer.addEventListener('click', (event) => {
-            const target = event.target.closest('button');
-            if (!target) return;
-
-            const productId = target.dataset.productId;
-            const productSize = target.dataset.productSize;
-
-            const itemIndex = cart.findIndex(item => item.id === productId && item.size === productSize);
-
-            if (target.classList.contains('remove-from-cart-btn')) {
-                if (itemIndex > -1) {
-                    cart.splice(itemIndex, 1);
-                }
-            } else if (target.classList.contains('increase-quantity-btn')) {
-                if (itemIndex > -1) {
-                    cart[itemIndex].quantity++;
-                }
-            } else if (target.classList.contains('decrease-quantity-btn')) {
-                if (itemIndex > -1) {
-                    if (cart[itemIndex].quantity > 1) {
-                        cart[itemIndex].quantity--;
-                    } else {
-                        cart.splice(itemIndex, 1);
-                    }
-                }
-            }
-            updateCartDisplay();
-        });
-
-        // Close mobile menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mobileMenu.classList.contains('hidden')) toggleMobileMenu();
-            });
-        });
-
-        // Language switcher event listeners
-        langButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const lang = button.dataset.lang;
-                setLanguage(lang);
-                // Highlight active language button
-                langButtons.forEach(btn => {
-                    if (btn.dataset.lang === lang) {
-                        btn.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
-                        btn.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
-                    } else {
-                        btn.classList.remove('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
-                        btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
-                    }
+            document.querySelectorAll('.lang-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    setLanguage(button.dataset.lang);
                 });
             });
+
+            setLanguage(currentLang);
+            updateCartCount();
         });
-
-        // Contact form submission handler - updated email
-        document.getElementById('checkout-btn').addEventListener('click', function(event) {
-            if (cart.length === 0) {
-                // Use the custom message box for feedback
-                cartMessageBox.classList.remove('hidden', 'bg-green-500');
-                cartMessageBox.classList.add('bg-red-500', 'opacity-100', 'scale-100');
-                cartMessageBox.querySelector('i').classList.replace('fa-check-circle', 'fa-exclamation-triangle');
-                cartMessageBox.querySelector('span').textContent = currentLang === 'en' ? 'Please add items to your cart before ordering.' : currentLang === 'zh' ? '请先将饮品加入购物车再订购。' : 'សូមជ្រើសរើសភេសជ្ជៈមុននឹងកម្មង់។';
-
-                setTimeout(() => {
-                    cartMessageBox.classList.remove('opacity-100', 'scale-100');
-                    cartMessageBox.classList.add('opacity-0', 'scale-95');
-                    setTimeout(() => {
-                        cartMessageBox.classList.add('hidden');
-                        cartMessageBox.classList.remove('bg-red-500');
-                        cartMessageBox.classList.add('bg-green-500');
-                        cartMessageBox.querySelector('i').classList.replace('fa-exclamation-triangle', 'fa-check-circle');
-                    }, 300);
-                }, 3000);
-                return;
-            }
-
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const cartDetails = cart.map(item => `${item.name} (${item.size === 'normal' ? getTranslation('cart.normalSize') : getTranslation('cart.largeSize')}): ${item.quantity} x ${item.price.toLocaleString('km-KH')}៛ = ${(item.price * item.quantity).toLocaleString('km-KH')}៛`).join('\n');
-            const messageBody = `សួស្តី Mak LingEr-Coffee, ខ្ញុំចង់កម្ម៉ង់ដូចខាងក្រោម:\n\n${cartDetails}\n\nតម្លៃសរុប: ${total.toLocaleString('km-KH')}៛\n\nសូមទំនាក់ទំនងខ្ញុំមកវិញ។`;
-            const recipient = 'vongsreysamphors@gmail.com';
-            const subject = 'ការកម្ម៉ង់ភេសជ្ជៈពីគេហទំព័រ Mak LingEr-Coffee';
-            const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(messageBody)}`;
-            window.location.href = mailtoLink;
-        });
-        
-        // Handle contact form submission (prevent default action)
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            // Simple success message for the contact form
-            const formMessageBox = document.getElementById('cartMessageBox');
-            formMessageBox.classList.remove('hidden', 'bg-green-500');
-            formMessageBox.classList.add('bg-blue-500', 'opacity-100', 'scale-100');
-            formMessageBox.querySelector('i').classList.replace('fa-check-circle', 'fa-paper-plane');
-            formMessageBox.querySelector('span').textContent = currentLang === 'en' ? 'Message sent successfully! We will contact you soon.' : currentLang === 'zh' ? '消息发送成功！我们将尽快联系您。' : 'សារត្រូវបានបញ្ជូនដោយជោគជ័យ! យើងនឹងទាក់ទងអ្នកវិញឆាប់ៗ។';
-
-            setTimeout(() => {
-                formMessageBox.classList.remove('opacity-100', 'scale-100');
-                formMessageBox.classList.add('opacity-0', 'scale-95');
-                setTimeout(() => {
-                    formMessageBox.classList.add('hidden');
-                    formMessageBox.classList.remove('bg-blue-500');
-                    formMessageBox.classList.add('bg-green-500');
-                    formMessageBox.querySelector('i').classList.replace('fa-paper-plane', 'fa-check-circle');
-                }, 300);
-            }, 3000);
-            
-            // Clear the form after submission
-            contactForm.reset();
-        });
-
-        // Initial setup on page load
-        window.onload = () => {
-             // Simulate button click to set initial highlight
-            document.querySelector('.lang-button[data-lang="km"]').click();
-            updateCartDisplay();
-        }
-
-        // Intersection Observer for scroll animations
-        const faders = document.querySelectorAll('.fade-in-on-scroll');
-        const appearOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('active');
-                appearOnScroll.unobserve(entry.target);
-            });
-        }, appearOptions);
-
-        faders.forEach(fader => appearOnScroll.observe(fader));
+        // --- END OF SHARED SCRIPT ---
     </script>
 </body>
 </html>

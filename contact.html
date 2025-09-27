@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mak LingEr-Coffee - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background-color: #f8f9fa; color: #343a40; }
+        html { scroll-behavior: smooth; }
+        .fade-in-on-scroll { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-on-scroll.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-lg p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-extrabold text-indigo-700 rounded-lg p-2 hover:bg-indigo-50 transition-colors">
+                Mak LingEr-Coffee
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.home">ទំព័រដើម</a>
+                <a href="products.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.products">ភេសជ្ជៈ</a>
+                <a href="about.html" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100" data-i18n="nav.about">អំពីពួកយើង</a>
+                <a href="contact.html" class="nav-link text-indigo-600 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 bg-gray-100" data-i18n="nav.contact">ទំនាក់ទំនង</a>
+                <a href="products.html#cart-section" class="nav-link text-gray-700 hover:text-indigo-600 font-semibold transition-colors rounded-lg p-2 hover:bg-gray-100 relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+                <div class="language-switcher flex space-x-2">
+                    <button class="lang-button" data-lang="km">ខ្មែរ</button>
+                    <button class="lang-button" data-lang="en">EN</button>
+                    <button class="lang-button" data-lang="zh">中文</button>
+                </div>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg p-2 hover:bg-gray-100 transition-colors">
+                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-white bg-opacity-95 z-[100] flex flex-col items-center justify-center space-y-8">
+        <button id="close-mobile-menu" class="absolute top-6 right-6 text-gray-700 focus:outline-none"><svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+        <a href="index.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600" data-i18n="nav.home">ទំព័រដើម</a>
+        <a href="products.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600" data-i18n="nav.products">ភេសជ្ជៈ</a>
+        <a href="about.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600" data-i18n="nav.about">អំពីពួកយើង</a>
+        <a href="contact.html" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600" data-i18n="nav.contact">ទំនាក់ទំនង</a>
+        <a href="products.html#cart-section" class="mobile-nav-link text-4xl font-semibold text-gray-800 hover:text-indigo-600 flex items-center gap-2"><i class="fas fa-shopping-cart"></i> <span data-i18n="nav.cart">រទេះទំនិញ</span></a>
+        <div class="language-switcher flex space-x-4">
+            <button class="lang-button px-4 py-2 rounded-md text-2xl" data-lang="km">ខ្មែរ</button>
+            <button class="lang-button px-4 py-2 rounded-md text-2xl" data-lang="en">EN</button>
+            <button class="lang-button px-4 py-2 rounded-md text-2xl" data-lang="zh">中文</button>
+        </div>
+    </div>
+
+    <main>
+        <section id="contact" class="py-16 px-4 bg-gray-100 fade-in-on-scroll">
+            <div class="container mx-auto text-center max-w-2xl">
+                <h2 class="text-4xl font-bold mb-8 text-gray-900" data-i18n="contact.heading">ទំនាក់ទំនងមកពួកយើង</h2>
+                <p class="text-lg text-gray-700 mb-8" data-i18n="contact.description">
+                    ប្រសិនបើអ្នកមានសំណួរ មតិកែលម្អ ឬចង់សាកសួរព័ត៌មានបន្ថែម សូមកុំស្ទាក់ស្ទើរក្នុងការទាក់ទងមកយើងខ្ញុំ។
+                </p>
+                <form id="contact-form" class="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="mb-6 text-left">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.nameLabel">ឈ្មោះ:</label>
+                        <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700" data-i18n="contact.namePlaceholder" required>
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.emailLabel">អ៊ីមែល:</label>
+                        <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700" data-i18n="contact.emailPlaceholder" required>
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2" data-i18n="contact.messageLabel">សារ:</label>
+                        <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700" data-i18n="contact.messagePlaceholder" required></textarea>
+                    </div>
+                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg w-full sm:w-auto" data-i18n="contact.submitButton">
+                        បញ្ជូនសារ
+                    </button>
+                </form>
+                <p class="mt-8 text-gray-600">
+                    <span data-i18n="contact.phonePrefix">ឬទូរស័ព្ទមកយើងតាមរយៈ:</span> <span class="font-semibold text-indigo-600">081 695 138 / 068 237 990</span><br>
+                    <span data-i18n="contact.telegramPrefix">តេឡេក្រាម</span>: <a href="https://t.me/vongsreysamphors" target="_blank" class="text-indigo-600 hover:underline">@vongsreysamphors</a> <br>
+                    <span data-i18n="contact.emailPrefix">អ៊ីមែល:</span> <a href="mailto:vongsreysamphors@gmail.com" class="text-indigo-600 hover:underline">vongsreysamphors@gmail.com</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p class="mb-4" data-i18n="footer.copyright">&copy; 2025 Mak LingEr-Coffee។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.privacyPolicy">គោលការណ៍ឯកជនភាព</a>
+                <span class="text-gray-400">|</span>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.termsOfService">លក្ខខណ្ឌប្រើប្រាស់</a>
+                <span class="text-gray-400">|</span>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors" data-i18n="footer.faq">សំណួរញឹកញាប់</a>
+            </div>
+        </div>
+    </footer>
+
+     <div id="formMessageBox" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-blue-500 text-white p-4 rounded-lg shadow-xl hidden transition-all duration-300 ease-in-out transform scale-95 opacity-0 z-[1000]">
+        <i class="fas fa-paper-plane mr-2"></i> <span></span>
+    </div>
+
+    <script>
+        // --- START OF SHARED SCRIPT ---
+        const translations = {
+             km: {
+                nav: { home: 'ទំព័រដើម', products: 'ភេសជ្ជៈ', about: 'អំពីពួកយើង', contact: 'ទំនាក់ទំនង', cart: 'រទេះទំនិញ' },
+                contact: { heading: 'ទំនាក់ទំនងមកពួកយើង', description: 'ប្រសិនបើអ្នកមានសំណួរ មតិកែលម្អ ឬចង់សាកសួរព័ត៌មានបន្ថែម សូមកុំស្ទាក់ស្ទើរក្នុងការទាក់ទងមកយើងខ្ញុំ។', nameLabel: 'ឈ្មោះ:', namePlaceholder: 'ឈ្មោះពេញរបស់អ្នក', emailLabel: 'អ៊ីមែល:', emailPlaceholder: 'អ៊ីមែលរបស់អ្នក', messageLabel: 'សារ:', messagePlaceholder: 'សាររបស់អ្នក', submitButton: 'បញ្ជូនសារ', phonePrefix: 'លេខទូរស័ព្ទ:', telegramPrefix: 'តេឡេក្រាម', emailPrefix: 'អ៊ីមែល:', successMessage: 'សារត្រូវបានបញ្ជូនដោយជោគជ័យ! យើងនឹងទាក់ទងអ្នកវិញឆាប់ៗ។' },
+                footer: { copyright: '&copy; 2025 Mak LingEr-Coffee។ រក្សាសិទ្ធិគ្រប់យ៉ាង។', privacyPolicy: 'គោលការណ៍ឯកជនភាព', termsOfService: 'លក្ខខណ្ឌប្រើប្រាស់', faq: 'សំណួរញឹកញាប់' }
+            },
+            en: {
+                nav: { home: 'Home', products: 'Drinks', about: 'About Us', contact: 'Contact', cart: 'Cart' },
+                contact: { heading: 'Contact Us', description: 'If you have any questions, feedback, or would like more information, please do not hesitate to contact us.', nameLabel: 'Name:', namePlaceholder: 'Your full name', emailLabel: 'Email:', emailPlaceholder: 'Your email', messageLabel: 'Message:', messagePlaceholder: 'Your message', submitButton: 'Send Message', phonePrefix: 'Phone number:', telegramPrefix: 'Telegram', emailPrefix: 'Email:', successMessage: 'Message sent successfully! We will contact you soon.' },
+                footer: { copyright: '&copy; 2025 Mak LingEr-Coffee. All rights reserved.', privacyPolicy: 'Privacy Policy', termsOfService: 'Terms of Service', faq: 'FAQ' }
+            },
+            zh: {
+                nav: { home: '首页', products: '饮品', about: '关于我们', contact: '联系我们', cart: '购物车' },
+                contact: { heading: '联系我们', description: '如果您有任何问题、反馈或想了解更多信息，请随时与我们联系。', nameLabel: '姓名:', namePlaceholder: '您的全名', emailLabel: '电子邮件:', emailPlaceholder: '您的电子邮件', messageLabel: '消息:', messagePlaceholder: '您的消息', submitButton: '发送消息', phonePrefix: '电话号码:', telegramPrefix: '飞机', emailPrefix: '电子邮件:', successMessage: '消息发送成功！我们将尽快联系您。'},
+                footer: { copyright: '&copy; 2025 Mak LingEr-Coffee。保留所有权利。', privacyPolicy: '隐私政策', termsOfService: '服务条款', faq: '常见问题' }
+            }
+        };
+
+        let currentLang = localStorage.getItem('language') || 'km';
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.dataset.i18n;
+                const text = getTranslation(key);
+                if (text) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = text;
+                    } else {
+                         if (element.dataset.i18n.includes('footer') || element.dataset.i18n.includes('contact.phonePrefix')) {
+                           element.innerHTML = text;
+                        } else {
+                           element.textContent = text;
+                        }
+                    }
+                }
+            });
+             updateLanguageButtons();
+        }
+
+        function getTranslation(key) {
+            const keys = key.split('.');
+            let result = translations[currentLang];
+            for (const k of keys) {
+                result = result?.[k];
+            }
+            return result;
+        }
+
+       function updateLanguageButtons() {
+            document.querySelectorAll('.lang-button').forEach(btn => {
+                btn.classList.add('px-3', 'py-1', 'rounded-md', 'transition-colors');
+                 if (btn.closest('#mobile-menu')) {
+                     btn.classList.add('text-2xl', 'px-4', 'py-2');
+                }
+                if (btn.dataset.lang === currentLang) {
+                    btn.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
+                    btn.classList.add('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
+                } else {
+                    btn.classList.remove('bg-indigo-600', 'text-white', 'hover:bg-indigo-700');
+                    btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-indigo-500', 'hover:text-white');
+                }
+            });
+        }
+        
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cart-count');
+            const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalQuantity;
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+            document.getElementById('close-mobile-menu').addEventListener('click', toggleMobileMenu);
+            document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', toggleMobileMenu));
+
+
+            document.querySelectorAll('.lang-button').forEach(button => {
+                button.addEventListener('click', () => setLanguage(button.dataset.lang));
+            });
+
+            // Page-specific logic
+            const contactForm = document.getElementById('contact-form');
+            if(contactForm) {
+                 contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const formMessageBox = document.getElementById('formMessageBox');
+                    formMessageBox.querySelector('span').textContent = getTranslation('contact.successMessage');
+                    formMessageBox.classList.remove('hidden', 'opacity-0', 'scale-95');
+                    formMessageBox.classList.add('opacity-100', 'scale-100');
+                    
+                    setTimeout(() => {
+                        formMessageBox.classList.remove('opacity-100', 'scale-100');
+                        formMessageBox.classList.add('opacity-0', 'scale-95');
+                        setTimeout(() => formMessageBox.classList.add('hidden'), 300);
+                    }, 3000);
+                    
+                    contactForm.reset();
+                });
+            }
+
+            const faders = document.querySelectorAll('.fade-in-on-scroll');
+            const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+            faders.forEach(fader => appearOnScroll.observe(fader));
+            
+            setLanguage(currentLang);
+            updateCartCount();
+        });
+        // --- END OF SHARED SCRIPT ---
+    </script>
+</body>
+</html>
